@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Butcherman&family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Texturina:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+
+
+:root {
+
+    --borcol: black;
+    --borsiz: 2px;
+    --borstyl: solid;
+    --hcol: black;
+    --colnav: white;
+    --bagcol: rgb(250, 250, 250, 0.7);
+    --fonth1: 'Nosifer', cursive;
+    --fontp: 'Amatic SC', cursive;
+    --fontnavbar: 'Butcherman' ;
+    --fontcytat: 'Stint Ultra Condensed' ;
+    --fontzywiol: 'Allura';
+
+
+
+}
+
+
+
+
+
+.heder {
+
+
+    text-align: center;
+    padding:40px 0 0 0;
+}
+
+header h1 a {
+    list-style: none;
+    text-decoration: none;
+    color: red;
+    animation: header 850ms infinite;
+
+}
+
+.heder h1 {
+    text-decoration: overline;
+    padding-bottom: 10px;
+    font-family: var(--fonth1);
+    font-size: 25px;
+
+}
+
+.heder h1:hover {
+    text-decoration: overline;
+    font-family: var(--fonth1);
+
+    color: red;
+    cursor: pointer;
+
+}
+
+
+.heder cite {
+    /* padding-bottom: 10px; */
+    font-family: var(--fontp);
+    font-size: 20px;
+}
+
+
+
+input[type=date] {
+    padding: 8px;
+    border: 1px solid #dc3545;
+    border-radius:5px;
+    background-color: #212529;
+    color:#dc3545
+    
+  }
+
+  input[type=text] {
+    padding: 8px;
+    border: 1px solid #dc3545;
+    border-radius:5px;
+    background-color: #212529;
+    color:#dc3545
+    
+  }
+
+
+.form-control {
+    color: #dc3545 !important;
+    
+
+    background-color: #212529 !important; 
+    border-style: dotted !important;
+}
+
+.form-control:focus{
+    background-color: #212529 !important; 
+    border-style: dotted !important;
+    color: #dc3545 !important;
+    box-shadow: 0px 0px white;
+    border-color: whitehsl(354, 70%, 54%);
+
+}
+
+.form-control::placeholder{
+
+    color: #dc3545 !important;
+}
+
+@keyframes header {
+
+    0% {
+        color: rgb(209, 209, 209);
+        text-shadow: 2px 2px 20px rgb(209, 209, 209, 0.7);
+    }
+
+    20% {
+        color: rgb(196, 31, 31);
+        text-shadow: 2px 2px 20px rgb(196, 31, 31, 0.7);
+    }
+
+    40% {
+        color: rgb(196, 196, 196);
+        text-shadow: 2px 2px 20px rgb(196, 196, 196, 0.7);
+    }
+
+    60% {
+        color: rgb(173, 9, 9);
+        text-shadow: 2px 2px 20px rgb(173, 9, 9, 0.7);
+    }
+
+    80% {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 20px rgb(255, 255, 255, 0.7);
+    }
+
+    100% {
+        color: rgb(209, 209, 209);
+        text-shadow: 2px 2px 20px rgb(209, 209, 209, 0.7);
+    }
+}
+

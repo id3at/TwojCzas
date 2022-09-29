@@ -1,0 +1,36 @@
+{% load CustomFilterTag %}
+				<footer class="row border border-danger rounded p-3 m-2 text-center ">
+
+
+					<blockquote class="justify-content-center pt-4 " style="color: #{{kolor|random}}">
+						{% for a in cytat|random %}
+						{% if forloop.counter == 1 %}
+						<h1 style="font-family: var(--fontcytat);">" {{a}} "</h1>
+
+
+
+
+						<button class="btn btn-outline-danger mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							Hasło z cytatu.
+						  </button>
+						</p>
+						<div class="collapse" id="collapseExample">
+						  <div class="card card-body bg-transparent text-danger">
+							{{a|haslo}}
+						  </div>
+						</div>
+
+						{%endif%}
+
+						{%endfor%}
+
+					</blockquote>
+					
+
+				</footer>
+
+				<div class="row justify-content-center">
+
+				<div class=" col-lg-12 m-4 fs-2 text-white text-center border-bottom border-danger col-sm-12 fs-6 " style="font-family: var(--fonth1); color: #dc3545 !important;"> Wszelkie prawa zastrzeżone. &copy; {{ data|date:"Y" }}
+					 </div>
+					</div>

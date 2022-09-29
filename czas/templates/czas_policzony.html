@@ -1,0 +1,128 @@
+{% extends 'baza.html' %}
+{% block b %}
+	<div class="row  border border-danger rounded m-2 py-4 text-danger text-center">
+        <div class="col=lg-6 fs-4" id="content" style="font-family: var(--fontcytat);"></div>
+        <span><a class="btn btn-outline-danger mt-2" href="{{request.META.HTTP_REFERER}}"> Powrot</a> </span>
+    </div>
+
+        
+		
+        
+
+<script type="text/javascript">
+
+
+
+    var licznik_sekund = 0;
+    var licznik_minut = 0;
+    var licznik_godzin = 0;
+
+
+
+
+function datap() {
+
+    var zegar = new Date()
+    var zegar_godzina = zegar.getHours()
+    var zegar_sekunda = zegar.getSeconds()
+    var zegar_minuta = zegar.getMinutes()
+    var data_miesiac = zegar.getMonth() + 1
+
+    
+
+    if (data_miesiac < 10)
+        {data_miesiac = `0${data_miesiac}`}
+
+
+    var imie_to = "{{twojczas|slice:"0:1"|safe|escapejs }}"
+    var dzien_tygodnia = "{{twojczas|slice:"1:2"|safe|escapejs }}"
+    dzien_tygodnia = dzien_tygodnia.slice(2, dzien_tygodnia.length - 3)
+    var Wiek = "{{twojczas|slice:"3:4"|safe|escapejs }}"
+    var mies = "{{twojczas|slice:"4:5"|safe|escapejs }}"
+    var odmiana_miesiecy = "{{twojczas|slice:"5:6"|safe|escapejs }}"
+    var wiekmies = "{{twojczas|slice:"6:7"|safe|escapejs }}"
+    var odmiana_miesiecy_suma = "{{twojczas|slice:"7:8"|safe|escapejs }}"
+    var ile_tygodni = "{{twojczas|slice:"8:9"|safe|escapejs }}"
+    var odmiana_tygodni = "{{twojczas|slice:"9:10"|safe|escapejs }}"
+    var resztatygodni = "{{twojczas|slice:"10:11"|safe|escapejs }}"
+    var odmiana_dni = "{{twojczas|slice:"11:12"|safe|escapejs }}"
+    var Wiekdelta = "{{twojczas|slice:"12:13"|safe|escapejs }}"
+    var godziny = "{{twojczas|slice:"13:14"|safe|escapejs }}"
+    godziny = parseInt(godziny.slice(1, godziny.length - 2))
+    var minut = "{{twojczas|slice:"14:15"|safe|escapejs }}"
+    minut = parseInt(minut.slice(1, minut.length - 2))
+    var sek = "{{twojczas|slice:"15:16"|safe|escapejs }}"
+    var kiedysto = "{{twojczas|slice:"16:17"|safe|escapejs }}"
+    var za_ile_dni_ur = "{{twojczas|slice:"17:18"|safe|escapejs }}"
+    var data_aktualna = `${zegar.getDate()}-${data_miesiac}-${zegar.getFullYear()}`
+    var obliczenia = document.getElementById("content")
+
+
+
+
+    licznik_sekund += 1
+
+        if (licznik_sekund % 60 == 0)
+            {licznik_minut = 1}
+        else
+            {licznik_minut = 0}
+
+    minut += licznik_minut
+
+
+    if (licznik_sekund % 3600 == 0) 
+        {licznik_godzin = 1}
+    else 
+        { licznik_godzin = 0}
+
+    godziny += licznik_godzin
+
+    if (zegar_sekunda < 10) 
+        {zegar_sekunda = `0${zegar_sekunda}`}
+    else 
+        {zegar_sekunda = zegar.getSeconds()}
+    if (zegar_minuta < 10) 
+        {zegar_minuta = `0${zegar_minuta}`}
+    else 
+        {zegar_minuta = zegar.getMinutes()}
+
+    
+
+    
+
+    obliczenia.innerHTML = ''
+    obliczenia.innerHTML += `Witaj ${imie_to.slice(2, imie_to.length - 3)} !!!`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `Jest ${dzien_tygodnia} ${data_aktualna}  ${zegar_godzina}:${zegar_minuta}:${zegar_sekunda}`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `Masz ${Wiek.slice(1, Wiek.length - 2)}, lat i ${mies.slice(1, mies.length - 2)}  ${odmiana_miesiecy.slice(2, odmiana_miesiecy.length -3)}`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `Przeżyłeś już: ${wiekmies.slice(1, wiekmies.length - 2)} ${odmiana_miesiecy_suma.slice(2, odmiana_miesiecy_suma.length -3)}`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `a to jest: ${ile_tygodni.slice(1, ile_tygodni.length - 2)}, ${odmiana_tygodni.slice(2, odmiana_tygodni.length -3)} i ${resztatygodni.slice(1, resztatygodni.length - 2)} ${odmiana_dni.slice(2, odmiana_dni.length -3)},`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `czyli ${Wiekdelta.slice(1, Wiekdelta.length - 2)}, ${odmiana_dni.slice(2, odmiana_dni.length -3)},`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `a to jest: ${godziny} godzin,`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `a to jest: ${minut} minut,`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `a to jest: ${parseInt(sek.slice(1, sek.length - 2)) + licznik_sekund} sekund.`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `100 lat osiągniesz w roku: ${kiedysto.slice(1, kiedysto.length - 2)}`
+    obliczenia.innerHTML += '<br>'
+    obliczenia.innerHTML += `Urodziny obchodzisz za ${za_ile_dni_ur.slice(1, za_ile_dni_ur.length - 2)} dni`
+
+    
+
+
+    setTimeout('datap()', 1000)
+
+}
+
+    
+    
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'baza.html' %}
+{% load static %}
+{% block b %}
+
+
+<div class="row border border-danger rounded p-3 m-2 text-center">
+	
+
+		<form class="row justify-content-center align-items-center " action="/" method="post">
+			{% csrf_token %}
+
+			
+			{% for field in form %}
+			{% if forloop.counter == 1 %}
+				<div class="col-lg-8 mb-3 col-sm-12 mb-1">
+			{{field}}
+			{% else %}
+				<div class="col-lg-2 mb-3 col-sm-12 mb-1">
+					{{field}}
+			{% endif %}
+					
+		</div>
+			{% endfor %}
+		
+		<div class="col-lg-2 mb-3 col-sm-12 mb-1">
+			<button type="submit" name="czaszycia" value="Oblicz czas życia" class="btn btn-outline-danger ">
+				Oblicz czas Życia.
+			</button></div>
+
+
+		</form>
+		
+
+
+
+
+
+
+
+		{% if chart %}
+
+		<img class="img-fluid" src="data:image/png;base64,  {{chart|safe}}">
+
+		{% endif %}
+
+	</div>
+
+
+{%endblock%}
